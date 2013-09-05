@@ -1,7 +1,8 @@
-package progr2_exercise1;
+package övning1;
 
 import java.util.Random;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -31,50 +32,13 @@ public class OrderingGame {
      * hahahaha
      *
      */
-    /*
-     *   Convert an int array to String respresentation
-     *   Input: array = the array to convert
-     *   Output: the string representation of array
-     */
-    public static String convertIntArrayToString(int[] array) {
-        String result = "";
-
-        for (int index = 0; index < array.length; index++) {
-            String addition = "_";
-            if (array[index] != 0) {
-                addition = "" + array[index];
-            }
-            result = result + " " + addition;
-        }
-        return result;
-    }
-
-    /*
-     *   Check if an array is in order or not
-     *   Input: array = the array to check
-     *   Output: true if array in order, false otherwise
-     */
-    public static boolean order(int[] array) {
-        boolean inOrder = true; //assume array is in order
-        int biggestNumberSoFar = array[0];
-        for (int index = 1; index < array.length; index++) {
-            if (array[index] != 0) {
-                if (biggestNumberSoFar > array[index]) {
-                    inOrder = false;
-                    break;
-                } else {
-                    biggestNumberSoFar = array[index];
-                }
-            }
-        }
-        return inOrder;
-    }
+ 
 
     public static void main(String[] args) {
+        Rulse rulse = new Rulse();
         int numberOfPositions = 0;
         int randomMax = 0;
         int[] test = {0, 2, 0, 6};
-        JOptionPane.showMessageDialog(null, order(test));
         //read game data from player
         String numberOfPositionsS = JOptionPane.showInputDialog("Please enter the game board size");
         String randomMaxS = JOptionPane.showInputDialog("Please enter the highest random number used");
@@ -88,7 +52,7 @@ public class OrderingGame {
         Random randomGenerator = new Random();
         while (!gameOver) {
             int randomNumber = randomGenerator.nextInt(randomMax) + 1;
-            String gameBoardS = convertIntArrayToString(gameBoard);
+            String gameBoardS = rulse.(gameBoard);
             String positionS = JOptionPane.showInputDialog("The random number is "
                     + randomNumber + "\nThe gameboard: " + gameBoardS + "\nPlease enter your chosen position (1-" + numberOfPositions + ")");
             int position = Integer.parseInt(positionS) - 1;
